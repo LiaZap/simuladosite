@@ -169,14 +169,17 @@
   }
   // Tempo na página: 45s
   setTimeout(function () { fireOnce("timed"); }, 45000);
+  // Trava: exit-intent só ativa após 10s na página (evita disparo ao entrar)
+  var exitReady = false;
+  setTimeout(function () { exitReady = true; }, 10000);
   // Desktop: cursor sai pelo topo da janela
   document.addEventListener("mouseout", function (e) {
-    if (e.clientY <= 0 && !e.relatedTarget) fireOnce("exit");
+    if (exitReady && e.clientY <= 0 && !e.relatedTarget) fireOnce("exit");
   });
   // Mobile: intercepta o botão "voltar" uma vez
   try { history.pushState({ prf: 1 }, ""); } catch (e) {}
   window.addEventListener("popstate", function () {
-    if (!exitShown) {
+    if (exitReady && !exitShown) {
       fireOnce("exit");
       try { history.pushState({ prf: 1 }, ""); } catch (e) {}
     }
