@@ -1,0 +1,7 @@
+# Arquivos que não precisam ir para a imagem Docker
+.git
+.gitignore
+README.md
+*.md
+.DS_Store
+node_modules

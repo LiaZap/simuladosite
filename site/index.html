@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simulados PRF · Padrão CEBRASPE | Pacote Completo</title>
+<meta name="description" content="20 simulados inéditos no padrão CEBRASPE + todas as provas anteriores da PRF, com gabaritos comentados. Treine a prova antes da prova." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================ SPRITE DE ÍCONES ============================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 9.5a2.5 2.5 0 0 0 0 5V17a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2.5a2.5 2.5 0 0 1 0-5V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2.5z"/>
+    <path d="M14 5.5v13" stroke-dasharray="2 2.4"/>
+  </symbol>
+  <symbol id="i-star" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 2.6l2.86 5.8 6.4.93-4.63 4.5 1.09 6.37L12 17.7l-5.72 3.0 1.09-6.37L2.74 9.83l6.4-.93L12 2.6z"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21s7-3.6 7-9V5.4L12 3 5 5.4V12c0 5.4 7 9 7 9z"/>
+    <path d="M9 11.8l2.1 2.1L15 9.8"/>
+  </symbol>
+  <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M9.3 9.2a2.8 2.8 0 0 1 5.45.93c0 1.9-2.85 2.6-2.85 2.6"/><path d="M12 17.2h.01"/>
+  </symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/>
+  </symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.6 3.9 2.4 18a1.6 1.6 0 0 0 1.4 2.4h16.4A1.6 1.6 0 0 0 21.6 18L13.4 3.9a1.6 1.6 0 0 0-2.8 0z"/><path d="M12 9.4v4"/><path d="M12 17h.01"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 12.5l4.8 4.8L19.5 7"/>
+  </symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h13M13 6l6 6-6 6"/>
+  </symbol>
+</svg>
+
+
+<!-- ============================ PROMO BAR (cupom) ============================ -->
+<div class="promobar" id="promobar">
+  <div class="promobar__in">
+    <span><svg class="ico"><use href="#i-ticket"></use></svg> Cupom <code>SIMULADOS20</code>: <b>20% OFF</b> no Pacote Completo</span>
+    <button class="promobar__copy" id="promoCopy" data-code="SIMULADOS20">Copiar</button>
+  </div>
+  <button class="promobar__close" id="promoClose" aria-label="Fechar">&times;</button>
+</div>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero section--darker" id="topo" data-screen-label="Hero">
+  <div class="hero__road"></div>
+  <div class="wrap">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <div class="hero__brandrow">
+          <img class="brandmark" src="logos/emblem-light.png" alt="Ambiente Simulado PRF" />
+          <div class="brandrow__txt">Ambiente Simulado PRF<small>@simulados.prf</small></div>
+        </div>
+        <div class="kicker">Concurso PRF · Padrão CEBRASPE</div>
+        <h1>Chegue no dia da prova <span class="em">já tendo feito a prova 20 vezes.</span></h1>
+        <p class="hero__sub">São 20 simulados inéditos no estilo exato da CEBRASPE, no formato Certo/Errado e com a penalização real, somados a todas as provas anteriores da PRF com gabarito comentado. Você para de estudar no escuro e passa a medir, prova após prova, o quanto já está pronto.</p>
+        <div class="hero__cta">
+          <a href="#oferta" class="btn btn--gold">Quero o pacote completo</a>
+          <a href="#oferta" class="btn btn--ghost">Ver opções individuais</a>
+        </div>
+        <div class="trustbar">
+          <span class="trustbar__item"><span class="trustbar__dot"></span><b>+<span class="ph">3.200</span> alunos</b></span>
+          <span class="trustbar__item"><span class="trustbar__dot"></span><b>20 simulados</b> no padrão real</span>
+          <span class="trustbar__item"><span class="trustbar__dot"></span>Garantia de <b>7 dias</b></span>
+        </div>
+      </div>
+
+      <div class="hero__art">
+        <div class="mock-stack">
+          <!-- Capa de PDF (back) -->
+          <div class="pdf pdf--back">
+            <img class="pdf__emblem" src="logos/emblem-light.png" alt="" aria-hidden="true" />
+            <div class="pdf__brand">Ambiente Simulado <b>PRF</b></div>
+            <div class="pdf__badge">PRF<br>ARQ</div>
+            <div class="pdf__year">PRF 2026 / 2027</div>
+            <div class="pdf__title">Provas<b>PRF</b></div>
+            <div class="pdf__rule"></div>
+            <div class="pdf__meta">Organizadas por ano<br>Gabarito comentado</div>
+          </div>
+          <!-- Capa de PDF (mid) -->
+          <div class="pdf pdf--mid">
+            <img class="pdf__emblem" src="logos/emblem-light.png" alt="" aria-hidden="true" />
+            <div class="pdf__brand">Ambiente Simulado <b>PRF</b></div>
+            <div class="pdf__badge">128<br>QST</div>
+            <div class="pdf__year">PRF 2026 / 2027</div>
+            <div class="pdf__title">Simulado<b>12</b></div>
+            <div class="pdf__rule"></div>
+            <div class="pdf__meta">Padrão CEBRASPE<br>Certo / Errado</div>
+          </div>
+          <!-- Capa de PDF (front) -->
+          <div class="pdf pdf--front">
+            <img class="pdf__emblem" src="logos/emblem-light.png" alt="" aria-hidden="true" />
+            <div class="pdf__brand">Ambiente Simulado <b>PRF</b></div>
+            <div class="pdf__badge">128<br>QST</div>
+            <div class="pdf__year">PRF 2026 / 2027</div>
+            <div class="pdf__title">Simulado<b>01</b></div>
+            <div class="pdf__rule"></div>
+            <div class="pdf__meta">Padrão CEBRASPE · C/E<br>Gabarito comentado<br>Tempo cronometrado</div>
+          </div>
+          <div class="hero__seal">
+            <div><b>20</b><span>simulados</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ QUICK BUY (planos compactos) ============================ -->
+<section class="quickbuy" id="comprar-rapido" data-screen-label="CompraRapida">
+  <div class="wrap">
+    <div class="quickbuy__head">
+      <div>
+        <h2>Comece hoje. Escolha seu acesso.</h2>
+        <p>Já sabe o que quer? Garanta em segundos. Os detalhes completos vêm logo abaixo.</p>
+      </div>
+      <span class="quickbuy__coupon"><svg class="ico"><use href="#i-ticket"></use></svg> Use <strong>SIMULADOS20</strong> e ganhe 20% no Pacote Completo</span>
+    </div>
+    <div class="qb-grid">
+      <div class="qb-card">
+        <div class="qb-card__tag">Simulado avulso</div>
+        <div class="qb-card__name">1 simulado</div>
+        <div class="qb-card__price"><small>R$</small> <span class="ph">27</span></div>
+        <div class="qb-card__note">para testar antes</div>
+        <a href="#" class="btn btn--ghost btn--block" data-buy="avulso" data-price="R$ 27">Comprar avulso</a>
+      </div>
+      <div class="qb-card qb-card--feat">
+        <div class="qb-card__tag"><svg class="ico"><use href="#i-star"></use></svg> Mais vendido</div>
+        <div class="qb-card__name">Pacote completo</div>
+        <div class="qb-card__price"><span class="was">de R$ <span class="ph">397</span></span><small>R$</small> <span class="ph">197</span></div>
+        <div class="qb-card__note">tudo incluso · 12x R$ 19,90</div>
+        <a href="#" class="btn btn--gold btn--block" data-buy="pacote" data-price="R$ 197">Quero o pacote completo</a>
+      </div>
+      <div class="qb-card">
+        <div class="qb-card__tag">Provas anteriores</div>
+        <div class="qb-card__name">Histórico PRF</div>
+        <div class="qb-card__price"><small>R$</small> <span class="ph">47</span></div>
+        <div class="qb-card__note">domine o padrão</div>
+        <a href="#" class="btn btn--ghost btn--block" data-buy="provas" data-price="R$ 47">Comprar provas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOR ============================ -->
+<section class="section section--light" data-screen-label="Dor">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">Você se identifica?</div>
+      <h2 class="section-title">O problema não é falta de estudo</h2>
+      <p class="section-sub">Marque mentalmente as frases que já passaram pela sua cabeça:</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-card__icon"><svg class="ico"><use href="#i-help"></use></svg></div>
+        <p>"Estudo há meses, mas no fundo ainda não sei se estou pronto para o dia da prova."</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card__icon"><svg class="ico"><use href="#i-target"></use></svg></div>
+        <p>"Travo nas pegadinhas da CEBRASPE e perco questão por interpretação, não por falta de conteúdo."</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card__icon"><svg class="ico"><use href="#i-clock"></use></svg></div>
+        <p>"Não controlo o tempo da prova: sempre sobra questão e falta relógio."</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card__icon"><svg class="ico"><use href="#i-alert"></use></svg></div>
+        <p>"Tenho medo de chegar no dia e ser surpreendido pelo nível das questões."</p>
+      </div>
+    </div>
+    <p class="pain-bridge reveal">Se você assentiu para pelo menos uma, fique tranquilo: não falta estudo. <b>Falta treino na prova real.</b></p>
+  </div>
+</section>
+
+<!-- ============================ SOLUÇÃO ============================ -->
+<section class="section section--dark" data-screen-label="Solucao">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">A solução</div>
+      <h2 class="section-title">Treine com a prova<br>antes da prova</h2>
+      <p class="section-sub">Dois pilares que transformam todo o seu estudo em desempenho medido, no mesmo formato, na mesma lógica e na mesma dificuldade que você vai encontrar no dia da prova.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar__num">01</div>
+        <h3>20 simulados inéditos</h3>
+        <p>No padrão exato da banca: formato Certo/Errado, mesma lógica de penalização e a distribuição de matérias do edital da PRF.</p>
+        <div class="pillar__chips">
+          <span class="chip chip--gold">Certo / Errado</span>
+          <span class="chip">128 questões cada</span>
+          <span class="chip">Erro anula acerto</span>
+        </div>
+        <div class="pdf-mini">
+          <div class="pdf-mini__q"><span class="ce ce--c">C</span> Item conforme a legislação de trânsito vigente…</div>
+          <div class="pdf-mini__q"><span class="ce ce--e">E</span> A competência descrita extrapola a atribuição…</div>
+          <div class="pdf-mini__q"><span class="ce ce--c">C</span> O princípio aplicado à situação hipotética…</div>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar__num">02</div>
+        <h3>Todas as provas anteriores</h3>
+        <p>O histórico completo da PRF, organizado por ano, com gabarito e comentários. Reconheça o padrão da banca e o que mais cai.</p>
+        <div class="pillar__chips">
+          <span class="chip chip--gold">Por ano</span>
+          <span class="chip">Gabarito comentado</span>
+          <span class="chip">Padrão da banca</span>
+        </div>
+        <div class="pdf-mini">
+          <div class="pdf-mini__q"><span class="ce ce--c">C</span> Prova PRF · Direito Constitucional…</div>
+          <div class="pdf-mini__q"><span class="ce ce--c">C</span> Prova PRF · Legislação de Trânsito…</div>
+          <div class="pdf-mini__q"><span class="ce ce--e">E</span> Prova PRF · Ética no Serviço Público…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ O QUE ESTÁ INCLUÍDO ============================ -->
+<section class="section section--light" data-screen-label="Incluido">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">O que está incluído</div>
+      <h2 class="section-title">Tudo que você recebe</h2>
+      <p class="section-sub">Material completo, do treino à correção, para você não deixar nenhum ponto fraco passar.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <div class="feat-card__check"><svg class="ico"><use href="#i-check"></use></svg></div>
+        <h3>20 simulados completos</h3>
+        <p><span class="ph">128</span> questões por simulado, cobrindo todas as disciplinas do edital da PRF.</p>
+        <div class="tag">2.560 questões inéditas no total</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-card__check"><svg class="ico"><use href="#i-check"></use></svg></div>
+        <h3>Padrão CEBRASPE real</h3>
+        <p>Itens Certo/Errado com a regra real de que o erro anula o acerto. Você treina a decisão mais difícil da prova: marcar ou deixar em branco.</p>
+        <div class="tag">mesma lógica de penalização</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-card__check"><svg class="ico"><use href="#i-check"></use></svg></div>
+        <h3>Gabaritos comentados</h3>
+        <p>A explicação do porquê de cada item, não só a resposta. Você entende o erro e não repete.</p>
+        <div class="tag">comentário item a item</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-card__check"><svg class="ico"><use href="#i-check"></use></svg></div>
+        <h3>Provas anteriores da PRF</h3>
+        <p>Todo o histórico organizado por ano, com gabarito, para reconhecer o padrão da banca.</p>
+        <div class="tag">arquivo completo por ano</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-card__check"><svg class="ico"><use href="#i-check"></use></svg></div>
+        <h3>2.560 questões inéditas</h3>
+        <p>Idênticas ao estilo da PRF na cobrança, na profundidade e na distribuição do edital. Nenhuma repetida das provas anteriores.</p>
+        <div class="tag">2.560 inéditas no padrão da banca</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-card__check"><svg class="ico"><use href="#i-check"></use></svg></div>
+        <h3>Entrega e acesso</h3>
+        <p>Em <span class="ph">PDF para impressão + área de membros online</span>. Acesso <span class="ph">vitalício</span> para estudar no seu ritmo.</p>
+        <div class="tag">disponível na hora da compra</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMO FUNCIONA ============================ -->
+<section class="section section--dark" data-screen-label="ComoFunciona">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Como funciona</div>
+      <h2 class="section-title">Um método simples<br>e repetível</h2>
+      <p class="section-sub">Nada de "e agora?". Você tem um caminho claro do primeiro simulado até o dia da prova.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step__n">1</div>
+        <div class="step__bar"></div>
+        <h3>Faça cronometrado</h3>
+        <p>Resolva o simulado no tempo da prova, como se fosse o dia oficial.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">2</div>
+        <div class="step__bar"></div>
+        <h3>Corrija e entenda</h3>
+        <p>Confira pelo gabarito comentado e descubra onde errou e por quê.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">3</div>
+        <div class="step__bar"></div>
+        <h3>Refaça os pontos fracos</h3>
+        <p>Reforce o que falhou e avance para o próximo simulado.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">4</div>
+        <div class="step__bar"></div>
+        <h3>Domine o padrão</h3>
+        <p>Resolva as provas anteriores e reconheça o estilo da banca de olhos fechados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BENEFÍCIOS ============================ -->
+<section class="section section--light" data-screen-label="Beneficios">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">A transformação</div>
+      <h2 class="section-title">De inseguro a preparado</h2>
+      <p class="section-sub">Você não compra um PDF. Você compra a sensação de chegar no dia da prova no controle.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-col ba-col--before reveal">
+        <span class="ba-col__label">Hoje, sem treino</span>
+        <h3>O cenário que tira seu sono</h3>
+        <ul class="ba-list">
+          <li><span class="mk"><svg class="ico"><use href="#i-x"></use></svg></span> Estuda muito, mas não sabe se está pronto.</li>
+          <li><span class="mk"><svg class="ico"><use href="#i-x"></use></svg></span> Cai nas pegadinhas e perde acerto por penalização.</li>
+          <li><span class="mk"><svg class="ico"><use href="#i-x"></use></svg></span> Perde o controle do tempo na hora da prova.</li>
+          <li><span class="mk"><svg class="ico"><use href="#i-x"></use></svg></span> Chega no dia ansioso e sem referência de desempenho.</li>
+        </ul>
+      </div>
+      <div class="ba-col ba-col--after reveal">
+        <span class="ba-col__label">Depois dos 20 simulados</span>
+        <h3>O cenário que você merece</h3>
+        <ul class="ba-list">
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> Familiaridade total com o estilo da banca, sem sustos no dia.</li>
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> Domínio do tempo e do ritmo de prova.</li>
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> Diagnóstico claro de cada ponto fraco.</li>
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> Confiança e controle emocional no dia decisivo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROVA SOCIAL ============================ -->
+<section class="section section--dark" data-screen-label="ProvaSocial">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">Quem já treinou</div>
+      <h2 class="section-title">Resultados de quem<br>simulou antes</h2>
+    </div>
+    <div class="stats-row">
+      <div class="stat reveal"><b class="stat__num">+3.200</b><span class="stat__lbl">alunos que já treinaram</span></div>
+      <div class="stat reveal"><b class="stat__num">4,8<small>/5</small></b><span class="stat__lbl">nota média de satisfação</span></div>
+      <div class="stat reveal"><b class="stat__num">2.560<small>+</small></b><span class="stat__lbl">questões inéditas resolvidas</span></div>
+    </div>
+    <div class="tst-grid">
+      <div class="tst reveal">
+        <p class="tst__quote">Fazer os simulados cronometrados foi o que mudou meu jogo. No dia da prova eu já sabia exatamente meu ritmo e não me desesperei com o tempo.</p>
+        <div class="tst__foot">
+          <div class="tst__avatar">MR</div>
+          <div>
+            <div class="tst__name">Marina R.</div>
+            <div class="tst__meta">Goiânia/GO</div>
+          </div>
+          <span class="tst__seal">Aprovada</span>
+        </div>
+      </div>
+      <div class="tst reveal">
+        <p class="tst__quote">Os comentários dos gabaritos valem ouro. Parei de errar por interpretação porque finalmente entendi a lógica das questões da banca.</p>
+        <div class="tst__foot">
+          <div class="tst__avatar">JC</div>
+          <div>
+            <div class="tst__name">Jonathan C.</div>
+            <div class="tst__meta">Curitiba/PR</div>
+          </div>
+          <span class="tst__seal">Aprovado</span>
+        </div>
+      </div>
+      <div class="tst reveal">
+        <p class="tst__quote">Eu tinha pavor do estilo Certo/Errado. Depois de 20 simulados, a regra de penalização virou estratégia a meu favor. Recomendo demais.</p>
+        <div class="tst__foot">
+          <div class="tst__avatar">AS</div>
+          <div>
+            <div class="tst__name">Ana S.</div>
+            <div class="tst__meta">Recife/PE</div>
+          </div>
+          <span class="tst__seal">Aprovada</span>
+        </div>
+      </div>
+    </div>
+    <p class="btn-sub" style="text-align:center; margin-top:22px;">Placeholder · substituir por depoimentos reais com autorização de uso.</p>
+  </div>
+</section>
+
+<!-- ============================ AUTORIDADE ============================ -->
+<section class="section section--light" data-screen-label="Autoridade">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Por que confiar</div>
+      <h2 class="section-title">Material feito para<br>você entender</h2>
+    </div>
+    <div class="auth-grid">
+      <div class="auth-seal-card reveal">
+        <img class="brandmark" src="logos/emblem-light.png" alt="Ambiente Simulado PRF" />
+        <div class="sign">Ambiente Simulado PRF</div>
+        <p>Material baseado no padrão CEBRASPE e no histórico de provas da PRF.</p>
+      </div>
+      <div>
+        <ul class="auth-points">
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> <span>Construído a partir de fontes confiáveis e alinhado ao edital e ao histórico real da banca.</span></li>
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> <span>Questões testadas por alunos reais antes de entrar no pacote.</span></li>
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> <span>Didático e claro: feito para qualquer pessoa entender de primeira, do iniciante ao veterano.</span></li>
+          <li><span class="mk"><svg class="ico"><use href="#i-check"></use></svg></span> <span>Atualizado conforme as mudanças do edital e do estilo de cobrança da CEBRASPE.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OFERTA ============================ -->
+<section class="section offer" id="oferta" data-screen-label="Oferta">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">A oferta</div>
+      <h2 class="section-title">Escolha como quer<br>chegar pronto</h2>
+      <p class="section-sub">Separado, tudo isso custaria muito mais. No Pacote Completo você leva os 20 simulados, as provas anteriores e todos os bônus pelo menor preço, e ainda aplica o cupom SIMULADOS20.</p>
+    </div>
+
+    <div class="offer-trust reveal">
+      <span class="stars"><svg class="ico"><use href="#i-star"></use></svg><svg class="ico"><use href="#i-star"></use></svg><svg class="ico"><use href="#i-star"></use></svg><svg class="ico"><use href="#i-star"></use></svg><svg class="ico"><use href="#i-star"></use></svg></span>
+      <span><b>+3.200</b> alunos já treinaram · nota média <b>4,8/5</b></span>
+    </div>
+
+    <div class="plans">
+      <!-- Avulso -->
+      <div class="plan reveal">
+        <div class="plan__name">Simulado avulso</div>
+        <div class="plan__for">Para quem quer testar 1 simulado antes.</div>
+        <div class="plan__price">
+          <div class="now"><small>R$</small> <span class="ph">27</span></div>
+        </div>
+        <div class="plan__inst">à vista, por simulado</div>
+        <ul class="plan__feats">
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> 1 simulado no padrão CEBRASPE</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Gabarito comentado</li>
+          <li><span class="dash"><svg class="ico"><use href="#i-x"></use></svg></span> Sem provas anteriores</li>
+          <li><span class="dash"><svg class="ico"><use href="#i-x"></use></svg></span> Sem bônus</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Garantia de 7 dias</li>
+        </ul>
+        <a href="#" class="btn btn--ghost btn--block" data-buy="avulso" data-price="R$ 27">Comprar avulso</a>
+      </div>
+
+      <!-- Pacote completo (destaque) -->
+      <div class="plan plan--feat reveal">
+        <div class="plan__badge"><svg class="ico"><use href="#i-star"></use></svg> Mais vendido</div>
+        <div class="plan__name">Pacote completo</div>
+        <div class="plan__for">Para quem quer chegar 100% pronto no dia da prova.</div>
+        <div class="plan__price">
+          <span class="from">de R$ <span class="ph">397</span></span>
+          <div class="now"><small>R$</small> <span class="ph">197</span></div>
+        </div>
+        <div class="plan__inst">ou <span class="ph">12x de R$ 19,90</span></div>
+        <ul class="plan__feats">
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> <strong>20 simulados</strong> inéditos (128 questões cada)</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> <strong>Todas as provas anteriores</strong> da PRF</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Gabaritos comentados item a item</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> <strong>Todos os bônus</strong> inclusos</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Acesso <span class="ph">vitalício</span></li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Garantia de 7 dias</li>
+        </ul>
+        <a href="#" class="btn btn--gold btn--block" data-buy="pacote" data-price="R$ 197">Quero o pacote completo</a>
+      </div>
+
+      <!-- Provas anteriores -->
+      <div class="plan reveal">
+        <div class="plan__name">Provas anteriores</div>
+        <div class="plan__for">Para quem quer treinar só o padrão da banca.</div>
+        <div class="plan__price">
+          <div class="now"><small>R$</small> <span class="ph">47</span></div>
+        </div>
+        <div class="plan__inst">à vista</div>
+        <ul class="plan__feats">
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Todas as provas anteriores da PRF</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Organizadas por ano</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Gabarito comentado</li>
+          <li><span class="dash"><svg class="ico"><use href="#i-x"></use></svg></span> Sem simulados inéditos</li>
+          <li><span class="ck"><svg class="ico"><use href="#i-check"></use></svg></span> Garantia de 7 dias</li>
+        </ul>
+        <a href="#" class="btn btn--ghost btn--block" data-buy="provas" data-price="R$ 47">Comprar provas</a>
+      </div>
+    </div>
+
+    <div class="value-anchor reveal">
+      <div class="va-rows">
+        <div class="va-row"><span>20 simulados inéditos · 2.560 questões</span><span class="ph">R$ 247</span></div>
+        <div class="va-row"><span>Todas as provas anteriores comentadas</span><span class="ph">R$ 47</span></div>
+        <div class="va-row"><span>4 bônus exclusivos</span><span class="ph">R$ 103</span></div>
+      </div>
+      <div class="va-summary">
+        <div class="va-summary__full">Tudo separado sairia <s class="ph">R$ 397</s></div>
+        <div class="va-summary__now">No pacote hoje: <b class="ph">R$ 197</b><small><span class="ph">12x de R$ 19,90</span> · você economiza <span class="ph">R$ 200</span></small></div>
+        <div class="va-summary__cupom"><svg class="ico"><use href="#i-ticket"></use></svg> Com <b>SIMULADOS20</b> sai por <b class="ph">R$ 157,60</b></div>
+      </div>
+    </div>
+
+    <div class="offer-pay">
+      <span class="guarantee-mini"><svg class="ico"><use href="#i-shield"></use></svg> Garantia incondicional de 7 dias</span>
+      <span class="pay-pill">Pix</span>
+      <span class="pay-pill">Cartão em até <span class="ph">12x</span></span>
+      <span class="pay-pill">Boleto</span>
+    </div>
+    <p class="offer-secure">Pagamento 100% seguro · Acesso imediato após a confirmação · 7 dias de garantia incondicional.</p>
+  </div>
+</section>
+
+<!-- ============================ BÔNUS ============================ -->
+<section class="section section--light" data-screen-label="Bonus">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">Exclusivo do pacote</div>
+      <h2 class="section-title">Bônus que vêm junto</h2>
+      <p class="section-sub">Tudo isso entra no Pacote Completo sem custo extra, para acelerar ainda mais o seu preparo.</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card reveal">
+        <span class="bonus-card__tag">Bônus 01</span>
+        <h3>Folha de redação</h3>
+        <p>No padrão da prova, para treinar a discursiva nas condições reais.</p>
+        <div class="val"><s>de R$ <span class="ph">47</span></s> &nbsp;<b>incluso grátis</b></div>
+      </div>
+      <div class="bonus-card reveal">
+        <span class="bonus-card__tag">Bônus 02</span>
+        <h3>Planilha de desempenho</h3>
+        <p>Acompanhe sua evolução simulado a simulado e veja onde focar.</p>
+        <div class="val"><s>de R$ <span class="ph">37</span></s> &nbsp;<b>incluso grátis</b></div>
+      </div>
+      <div class="bonus-card reveal">
+        <span class="bonus-card__tag">Bônus 03</span>
+        <h3>Mapa de assuntos</h3>
+        <p>Os temas mais cobrados pela banca, priorizados para o seu estudo.</p>
+        <div class="val"><s>de R$ <span class="ph">57</span></s> &nbsp;<b>incluso grátis</b></div>
+      </div>
+      <div class="bonus-card reveal">
+        <span class="bonus-card__tag">Bônus 04</span>
+        <h3>Guia anti-pegadinha</h3>
+        <p>Mini-guia "como interpretar questões CEBRASPE" sem cair nas armadilhas.</p>
+        <div class="val"><s>de R$ <span class="ph">39</span></s> &nbsp;<b>incluso grátis</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GARANTIA ============================ -->
+<section class="section section--paper2" data-screen-label="Garantia">
+  <div class="wrap wrap--narrow guar">
+    <div class="kicker kicker--center">Risco zero</div>
+    <div class="guar__seal" style="margin-top:24px;">
+      <div><b>7</b><span>dias</span></div>
+    </div>
+    <h2 class="section-title" style="text-align:center;">Garantia incondicional</h2>
+    <p>Faça os simulados, leia os comentários, teste o método. Se em <strong>7 dias</strong> você achar que não é para você, basta pedir: devolvemos <strong>100% do valor</strong>, sem perguntas e sem burocracia. O risco é todo nosso.</p>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section section--dark" data-screen-label="FAQ">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center">
+      <div class="kicker kicker--center">Perguntas frequentes</div>
+      <h2 class="section-title">Ainda com dúvida?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" aria-expanded="false">
+        <button class="faq-q">Os simulados são iguais à prova da PRF? <span class="faq-q__plus"></span></button>
+        <div class="faq-a"><div class="faq-a__inner">Sim no que importa. Estilo, formato e lógica são idênticos ao padrão CEBRASPE: itens Certo/Errado, com a mesma regra de penalização (uma errada anula uma certa) e a distribuição de matérias do edital da PRF. São questões inéditas, criadas para reproduzir a experiência da prova real.</div></div>
+      </div>
+      <div class="faq-item" aria-expanded="false">
+        <button class="faq-q">Como recebo o material? <span class="faq-q__plus"></span></button>
+        <div class="faq-a"><div class="faq-a__inner">Logo após a compra você recebe o acesso por <span class="ph">PDF para impressão + área de membros online</span>. Tudo fica disponível na hora, no seu e-mail e na plataforma.</div></div>
+      </div>
+      <div class="faq-item" aria-expanded="false">
+        <button class="faq-q">Por quanto tempo tenho acesso? <span class="faq-q__plus"></span></button>
+        <div class="faq-a"><div class="faq-a__inner">O acesso é <span class="ph">vitalício</span>: você estuda no seu ritmo e revisita o material quantas vezes quiser, inclusive em futuras edições do concurso.</div></div>
+      </div>
+      <div class="faq-item" aria-expanded="false">
+        <button class="faq-q">Serve mesmo se eu estiver começando agora? <span class="faq-q__plus"></span></button>
+        <div class="faq-a"><div class="faq-a__inner">Sim. Os gabaritos comentados explicam o porquê de cada item, então mesmo quem está no início aprende com a correção. E como você acompanha o desempenho simulado a simulado, sabe exatamente onde reforçar.</div></div>
+      </div>
+      <div class="faq-item" aria-expanded="false">
+        <button class="faq-q">Posso comprar só um simulado? <span class="faq-q__plus"></span></button>
+        <div class="faq-a"><div class="faq-a__inner">Pode. A opção avulsa existe justamente para você testar antes. Só lembre: no Pacote Completo cada questão sai muito mais barata, e ainda entram as provas anteriores e todos os bônus.</div></div>
+      </div>
+      <div class="faq-item" aria-expanded="false">
+        <button class="faq-q">E se eu não gostar? <span class="faq-q__plus"></span></button>
+        <div class="faq-a"><div class="faq-a__inner">Você tem 7 dias de garantia incondicional. Se não for para você, devolvemos 100% do valor, sem perguntas.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA FINAL ============================ -->
+<section class="section final" data-screen-label="CTAFinal">
+  <img class="final__mark" src="logos/emblem-light.png" alt="" aria-hidden="true" />
+  <div class="wrap wrap--narrow">
+    <div class="urgency"><span class="pulse"></span> <span class="ph">Condição de lançamento por tempo limitado</span></div>
+    <h2>Garanta sua vaga <span class="em">na largada certa.</span></h2>
+    <p>São 20 simulados no padrão CEBRASPE, todas as provas anteriores e todos os bônus, com 7 dias de garantia para decidir sem risco. <span class="ph">[Inserir status atual do concurso/edital, se houver, para reforçar a urgência.]</span></p>
+    <div class="countdown" id="countdown" aria-hidden="true">
+      <div class="cd-box"><b id="cd-d">02</b><span>dias</span></div>
+      <div class="cd-box"><b id="cd-h">00</b><span>horas</span></div>
+      <div class="cd-box"><b id="cd-m">00</b><span>min</span></div>
+      <div class="cd-box"><b id="cd-s">00</b><span>seg</span></div>
+    </div>
+    <div style="margin-top:14px;">
+      <a href="#oferta" class="btn btn--gold btn--lg">Garantir meu acesso agora</a>
+      <div class="btn-sub">Pagamento seguro · Pix, cartão e boleto · Garantia de 7 dias</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RODAPÉ ============================ -->
+<footer class="footer" data-screen-label="Rodape">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="hero__brandrow" style="margin:0;">
+        <img class="brandmark" src="logos/emblem-light.png" alt="Ambiente Simulado PRF" />
+        <div class="brandrow__txt" style="color:#cfd6e0;">Ambiente Simulado PRF<small style="color:var(--gold);">@simulados.prf</small></div>
+      </div>
+      <div class="footer__qr">
+        <img src="logos/qr-navy.png" alt="QR code do Instagram @simulados.prf" />
+        <p><b>Siga no Instagram</b>Aponte a câmera para o QR e acompanhe @simulados.prf.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#">Termos de uso</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Contato / Suporte</a>
+        <a href="#oferta">Comprar</a>
+      </nav>
+    </div>
+    <div class="footer__disc">
+      <p><b><span class="ph">[Nome da empresa / CNPJ aqui]</span></b></p>
+      <p style="margin-top:10px;">Material de estudo independente, sem vínculo oficial com a Polícia Rodoviária Federal (PRF) ou com a banca CEBRASPE. As marcas citadas pertencem aos seus respectivos titulares. Este material não garante aprovação. O que ele entrega é treino, diagnóstico e preparo no padrão real da prova.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ STICKY MOBILE CTA ============================ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta__price">
+    <b>R$ <span class="ph">197</span></b>
+    <span>ou <span class="ph">12x R$ 19,90</span></span>
+  </div>
+  <a href="#" class="btn btn--gold" data-buy="pacote" data-price="R$ 197">Garantir acesso</a>
+</div>
+
+<!-- ============================ COUPON MODAL ============================ -->
+<div class="modal-overlay" id="couponModal" role="dialog" aria-modal="true" aria-labelledby="couponTitle">
+  <div class="coupon-modal">
+    <button class="coupon-close" id="couponClose" aria-label="Fechar">&times;</button>
+    <div class="coupon-kicker"><svg class="ico"><use href="#i-ticket"></use></svg> <span id="couponKicker">Desconto liberado</span></div>
+    <h3 id="couponTitle">Você ganhou 20% OFF</h3>
+    <p id="couponText">Aplique o cupom abaixo na finalização e garanta o Pacote Completo com desconto.</p>
+
+    <div class="coupon-state coupon-state--code">
+      <div class="coupon-code">
+        <span id="couponCode">SIMULADOS20</span>
+        <button id="couponCopy" data-code="SIMULADOS20">Copiar</button>
+      </div>
+      <p class="coupon-context" id="couponContext">Plano: <b>Pacote completo</b></p>
+      <a href="#" class="btn btn--gold btn--block" id="couponGo" style="margin-top:16px;">Ir para o pagamento</a>
+    </div>
+
+    <div class="coupon-state coupon-state--upsell">
+      <div class="upsell-box">
+        <div class="upsell-row"><span>Plano escolhido (<span id="upsellPlanName">avulso</span>)</span><b id="upsellPlanPrice">R$ 27</b></div>
+        <div class="upsell-row upsell-row--hi"><span>Pacote Completo com SIMULADOS20</span><b>R$ 157,60</b></div>
+        <p class="upsell-note">20 simulados + todas as provas anteriores + os 4 bônus. O cupom de 20% vale só para o Pacote Completo.</p>
+      </div>
+      <a href="#" class="btn btn--gold btn--block" id="upsellGo" data-buy="pacote" data-price="R$ 197">Quero o pacote completo com 20% OFF</a>
+      <button class="btn btn--ghost btn--block coupon-continue" id="upsellContinue">Continuar só com o <span id="upsellPlanName2">avulso</span></button>
+    </div>
+
+    <p class="coupon-fine">Pagamento 100% seguro · Acesso imediato · 7 dias de garantia. <span class="ph">[Conectar ao checkout real]</span></p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
