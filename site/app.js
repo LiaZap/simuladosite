@@ -103,9 +103,16 @@
   var couponCopy = document.getElementById("couponCopy");
   var couponContext = document.getElementById("couponContext");
   var planNames = { pacote: "Pacote completo", redacao: "Redacao PRF", simulados: "Simulados PRF" };
+  var planLinks = {
+    pacote: "https://pay.kiwify.com.br/hliZtSu",
+    redacao: "https://pay.kiwify.com.br/clGdRqv",
+    simulados: "https://pay.kiwify.com.br/hliZtSu"
+  };
+  var currentPlan = "pacote";
 
   function setText(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
   function openModal(plan, price) {
+    currentPlan = plan || "pacote";
     modal.classList.remove("mode-code", "mode-upsell");
     if (!plan || plan === "pacote") {
       modal.classList.add("mode-code");
@@ -142,7 +149,11 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeModal(); });
   if (couponCopy) couponCopy.addEventListener("click", function () { copyCode(couponCopy.getAttribute("data-code"), couponCopy); });
   var upsellContinue = document.getElementById("upsellContinue");
-  if (upsellContinue) upsellContinue.addEventListener("click", closeModal);
+  if (upsellContinue) upsellContinue.addEventListener("click", function () {
+    var link = planLinks[currentPlan];
+    if (link) window.location.href = link;
+    else closeModal();
+  });
 
   /* ---------- Popup do cupom: tempo na página + exit intent ---------- */
   var exitShown = false;
