@@ -102,7 +102,7 @@
   var modalClose = document.getElementById("couponClose");
   var couponCopy = document.getElementById("couponCopy");
   var couponContext = document.getElementById("couponContext");
-  var planNames = { pacote: "Pacote completo", avulso: "Simulado avulso", provas: "Provas anteriores" };
+  var planNames = { pacote: "Pacote completo", redacao: "Redacao PRF", simulados: "Simulados PRF" };
 
   function setText(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
   function openModal(plan, price) {
