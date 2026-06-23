@@ -102,11 +102,11 @@
   var modalClose = document.getElementById("couponClose");
   var couponCopy = document.getElementById("couponCopy");
   var couponContext = document.getElementById("couponContext");
-  var planNames = { pacote: "Pacote completo", redacao: "Redacao PRF", simulados: "Simulados PRF" };
+  var planNames = { pacote: "Pacote completo", redacao: "Redacao PRF", provas: "Provas anteriores" };
   var planLinks = {
     pacote: "https://pay.kiwify.com.br/hliZtSu",
     redacao: "https://pay.kiwify.com.br/clGdRqv",
-    simulados: "https://pay.kiwify.com.br/hliZtSu"
+    provas: "https://pay.kiwify.com.br/0jrGsVO"
   };
   var currentPlan = "pacote";
 
