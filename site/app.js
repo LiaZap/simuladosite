@@ -45,6 +45,34 @@
   }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
 
+  /* ---------- Meta Pixel: ViewContent ao ver a seção de oferta ---------- */
+  var offerSection = document.getElementById("oferta");
+  if (offerSection) {
+    var vcFired = false;
+    var vcObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !vcFired) {
+        vcFired = true;
+        if (typeof fbq === "function") fbq("track", "ViewContent", { content_name: "Secao Oferta", content_category: "Landing Page" });
+        vcObs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    vcObs.observe(offerSection);
+  }
+
+  /* ---------- Meta Pixel: scroll depth (25/50/75/100%) ---------- */
+  var scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener("scroll", function () {
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0) return;
+    var pct = Math.round((window.scrollY / docH) * 100);
+    [25, 50, 75, 100].forEach(function (mark) {
+      if (pct >= mark && !scrollMarks[mark]) {
+        scrollMarks[mark] = true;
+        if (typeof fbq === "function") fbq("trackCustom", "ScrollDepth", { percent: mark });
+      }
+    });
+  }, { passive: true });
+
   /* ---------- Countdown (placeholder — 48h rolling) ---------- */
   var KEY = "prf_deadline";
   var deadline = parseInt(localStorage.getItem(KEY) || "0", 10);
@@ -141,16 +169,23 @@
   document.querySelectorAll("[data-buy]").forEach(function (el) {
     el.addEventListener("click", function (ev) {
       ev.preventDefault();
-      openModal(el.getAttribute("data-buy"), el.getAttribute("data-price"));
+      var plan = el.getAttribute("data-buy");
+      var price = el.getAttribute("data-price");
+      if (typeof fbq === "function") fbq("track", "InitiateCheckout", { content_name: planNames[plan] || plan, currency: "BRL", value: parseFloat((price || "0").replace(/[^\d,]/g, "").replace(",", ".")) || 0 });
+      openModal(plan, price);
     });
   });
   if (modalClose) modalClose.addEventListener("click", closeModal);
   if (modal) modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeModal(); });
-  if (couponCopy) couponCopy.addEventListener("click", function () { copyCode(couponCopy.getAttribute("data-code"), couponCopy); });
+  if (couponCopy) couponCopy.addEventListener("click", function () {
+    copyCode(couponCopy.getAttribute("data-code"), couponCopy);
+    if (typeof fbq === "function") fbq("trackCustom", "CouponCopy", { coupon: couponCopy.getAttribute("data-code") });
+  });
   var upsellContinue = document.getElementById("upsellContinue");
   if (upsellContinue) upsellContinue.addEventListener("click", function () {
     var link = planLinks[currentPlan];
+    if (typeof fbq === "function") fbq("trackCustom", "CheckoutRedirect", { plan: currentPlan });
     if (link) window.location.href = link;
     else closeModal();
   });
@@ -175,6 +210,7 @@
       setText("couponText", "Liberamos seu cupom de desconto. Aplique o código abaixo e leve o Pacote Completo por menos.");
     }
     if (couponContext) couponContext.innerHTML = "Plano: <b>Pacote completo</b>";
+    if (typeof fbq === "function") fbq("track", "Lead", { content_name: "Cupom " + variant, content_category: "Exit Intent" });
     modal.classList.add("show");
     document.body.style.overflow = "hidden";
   }
