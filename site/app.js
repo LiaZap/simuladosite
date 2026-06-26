@@ -214,11 +214,11 @@
     modal.classList.add("show");
     document.body.style.overflow = "hidden";
   }
-  // Tempo na página: 45s
-  setTimeout(function () { fireOnce("timed"); }, 45000);
-  // Trava: exit-intent só ativa após 10s na página (evita disparo ao entrar)
+  // Tempo na página: 90s
+  setTimeout(function () { fireOnce("timed"); }, 90000);
+  // Trava: exit-intent só ativa após 30s na página
   var exitReady = false;
-  setTimeout(function () { exitReady = true; }, 10000);
+  setTimeout(function () { exitReady = true; }, 30000);
   // Desktop: cursor sai pelo topo da janela
   document.addEventListener("mouseout", function (e) {
     if (exitReady && e.clientY <= 0 && !e.relatedTarget) fireOnce("exit");
